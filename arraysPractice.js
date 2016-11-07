@@ -5,7 +5,9 @@ var arr = [10,20,30];
 //Create a function named 'first' that is given 'arr' as the argument and  returns the first item in the given array.
 
   //Code Here
-
+var first = function(arr) {
+  return arr[0];
+};
 
 //Next problem
 
@@ -16,7 +18,9 @@ var arr = [40,50,60];
 
 
   //Code Here
-
+function last (arr) {
+  return arr[arr.length - 1];
+}
 
 //Next Problem
 
@@ -25,7 +29,11 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 //Create a function named 'looper' that is given family as it's only argument, loops through the given array, and alerts every item in the array.
 
   //Code Here
-
+function looper (family) {
+  for (var i = 0; i < family.length; i++) {
+    alert(family[i]);
+  }
+}
 
 //Next problem
 
@@ -36,6 +44,11 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 
   //Code Here
 
+function reversedLooper (letters) {
+  for (var i = letters.length - 1; i >= 0; i--) {
+    alert(letters[i]);
+  }
+}
 
 //Next Problem
 
@@ -45,6 +58,14 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 
   //Code Here
 
+var evenFinder = function(nums) {
+  for (var i = nums.length - 1; i >=0 ;  i--) {
+    if (nums[i] % 2 !== 0) {
+      nums.splice(i, 1);
+    }
+  }
+  return nums;
+};
 
 //Next problem
 
@@ -57,6 +78,18 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 
   //Code Here
 
+function divider (numbersArray) {
+  var evens = [];
+  var odds = [];
+  for (var i = 0; i < numbersArray.length; i++) {
+    if (numbersArray[i] % 2 === 0 ) {
+      evens.push(numbersArray[i]);
+    } else {
+      odds.push(numbersArray[i]);
+    }
+  }
+  return [evens, odds];
+}
 
 //Next Problem
 
@@ -71,6 +104,16 @@ var getRandomArbitrary = function() {
 
   //Code Here
 
+var finder = function(array) {
+  var randomNumber = getRandomArbitrary();
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] == randomNumber) {
+      return true;
+    }
+  }
+  return false;
+};
+
   //Code Here
 
 
@@ -83,6 +126,9 @@ var str = 'this is my sentence';
 
   //Code Here
 
+var reverse = function(str) {
+  return str.split("").reverse().join("");
+};
 
 //Next Problem
 
@@ -105,6 +151,24 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
   //Code Here
 
+  var removeItem = function(groceryList, item) {
+    if (!groceryList || !item) {
+      return [];
+    }
+    if (groceryList.includes(item)) {
+      groceryList.splice(groceryList.indexOf(item), 1);
+    }
+    return groceryList;
+  };
+
+  var addItem = function(groceryList, item) {
+    if (!groceryList || !item) {
+      return [];
+    }
+    groceryList.push(item);
+    return groceryList;
+  };
+
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
 
@@ -118,6 +182,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
   //Code Here
 
+var maker = function() {
+  var result = [];
+  for (var i = 1; i < 216; i++) {
+    result.push(i);
+  }
+  return result;
+};
 
 
 //Next Problem
@@ -129,6 +200,12 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 
   //Code Here
 
+var addTen = function(numbers) {
+  for (var i = 0; i < numbers.length; i++) {
+    numbers[i] = numbers[i] - 0 + 10;
+  }
+  return numbers;
+};
 
 
 //Next Problem
@@ -150,6 +227,13 @@ for(var i = 0; i < num2; i++){
 
   //Code Here
 
+function longer (arr1, arr2) {
+  if (arr1.length >= arr2.length) {
+    return arr1;
+  } else if (arr2.length > arr1.length) {
+    return arr2;
+  }
+}
 
 /*As a continuation of the previous problem, write another function called 'both'.
   Your 'both' function will be given two arguments, arr1 and arr2 (from the previous example).
@@ -159,6 +243,15 @@ for(var i = 0; i < num2; i++){
 
   //Code Here
 
+var both = function(arr1, arr2) {
+  var result = []
+  for (var i = 0; i < arr2.length; i++) {
+    if (arr1.includes(arr2[i])) {
+      result.push(arr2[i]);
+    }
+  }
+  return result;
+};
 
 
 
@@ -199,12 +292,23 @@ sure that it's equal to 4. */
 
   //Code Here
 
+devMountainEmployees.push(tyler);
+devMountainEmployees.push(cahlan);
+devMountainEmployees.push(ryan);
+devMountainEmployees.push(colt);
+
+console.log(devMountainEmployees.length);
+
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
   //Code Here
 
-
+for (var i = 0; i < devMountainEmployees.length; i++) {
+  if (devMountainEmployees[i].name === "Cahlan") {
+    devMountainEmployees.splice(i, 1);
+  }
+}
 
 
 //NEXT PROBLEM
@@ -246,6 +350,8 @@ of Data is to have an Array full of objects. */
 
   //Code Here
 
+var users = [];
+
 /*Now add three user objects to your users array. Each user object should contain the
 following properties. name, email, password, username.*/
 
@@ -259,6 +365,10 @@ var user1 = {
 
 //Your Code Here
 
+users.push({name: "K", email: "@", password: "*", username: "k"});
+users.push({name: "A", email: "@", password: "*", username: "a"});
+users.push(user1);
+
 /*Now you have a very common data structure. Twitter is a good use case.
 It's easy to imagine that your followers list on Twitter is an Array full or objects
 and those objects contain properties about the specific person you follow.*/
@@ -268,5 +378,11 @@ objects until you find Tyler's account (use tylermcginnis33@gmail.com to find hi
 Once you find the particular index he's located in, delete him from the array.*/
 
   //Code Here
+
+for (var i = 0; i < users.length; i++) {
+  if (users[i].email === "tylermcginnis33@gmail.com") {
+    users.splice(i, 1);
+  }
+}
 
 //The activity we just did is very much how data works in 'the real world'.
